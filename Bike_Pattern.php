@@ -110,7 +110,7 @@ class BuildBikeCostumer implements BikeCraftingProcess
 
     public function __construct(string $name, string $engine, int $speed)
     {
-        $name = $_POST["BIKE_NAME"];
+        $name = $_POST["COSTUMER_NAME"];
         $engine = $_POST["BIKE_ENGINE"];
         $speed = $_POST["BIKE_SPEED"];
 
@@ -126,12 +126,12 @@ class BuildBikeCostumer implements BikeCraftingProcess
 
     public function factoryCraft(): void
     {
-        echo "The Bike Factory notes the order of the costumer $this->name.\n";
+        echo "The Bike Factory built the Bike $this->type with engine $this->engine and Speed of $this->speed (mph).\n";
     }
 
     public function factoryBuild($components): void
     {
-        echo "The Bike Factory built the Bike $this->type with engine $this->engine and Speed of $this->speed (mph).\n";
+        echo "The Bike Factory notes the order of the costumer $this->name.\n";
     }
 }
 
@@ -154,5 +154,21 @@ echo "Delivring Bike Components:\n";
 costumerOrder(new DeliveredBike($_POST["COSTUMER_NAME"], $_POST["BIKE_ENGINE"], $_POST["BIKE_SPEED"]));
 echo "\n\n";
 
+$name = $_POST["COSTUMER_NAME"];
+$type = $_POST["BIKE_TYPE"];
+$color = $_POST["BIKE_COLOR"];
+$seats = $_POST["BIKE_SEATS"];
+$transmission = $_POST["BIKE_TRANSMISSION"];
+$engine = $_POST["BIKE_ENGINE"];
+$speed = $_POST["BIKE_SPEED"]; 
+
 echo "The Costumer " . $_POST["COSTUMER_NAME"] . " Has Successfully bought the bike(Stats):\n"
     . $_POST["BIKE_TYPE"]. "\n" . $_POST["BIKE_COLOR"]. "\n" . $_POST["BIKE_SEATS"]. "\n" . $_POST["BIKE_TRANSMISSION"]. "\n" . $_POST["BIKE_ENGINE"]. "\n" . $_POST["BIKE_SPEED"] ;
+
+
+// ============Linking DB=================
+
+$host = "localhost";
+$dbname = "message_db";
+$username = "root";
+$password = "";
