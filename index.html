@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>🏍Bike Factory🏍</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h1>Bike Factory - Form</h1>
+
+        <div class="form">
+            <form>
+                <label for="name">Buyer Name: </label>
+                <input type="text" id="name">
+
+                <label for="biketype">Bike Type: </label>
+                <select id="biketype">
+                    <option>CHOPPER_BIKE</option>
+                    <option>CROSS_BIKE</option>
+                    <option>CRUISER_BIKE</option>
+                    <option>TOURING_BIKE</option>
+                    <option>NAKED_BIKE</option>
+                    <option>ATV_BIKE</option>
+                    <option>STREET_BIKE</option>
+                    <option>SCOOTER_BIKE</option>
+                    <option>ENDURO_BIKE</option>
+                </select>
+
+                <label for="bikeseats">Bike Seats:</label>
+                <select id="bikeseats">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+
+                <label for="bikecolor">Bike Color: </label>
+                <select id="bikecolor">
+                    <option>WHITE</option>
+                    <option style="background-color: black;color: aliceblue;">BLACK</option>
+                    <option style="background-color: purple;">PURPLE</option>
+                    <option style="background-color: red;">RED</option>
+                    <option style="background-color: yellow;">YELLOW</option>
+                    <option style="background-color: blue;">BLUE</option>
+                    <option style="background-color: green;">GREEN</option>
+                    <option style="background-color: orange;">ORANGE</option>
+                </select>
+
+                <label for="biketransmission">Bike Transmission: </label>
+                <select id="biketransmission">
+                    <option>MANUAL</option>
+                    <option>SEMI_AUTOMATIC</option>
+                    <option>AUTOMATIC</option>
+                </select>
+
+                <label for="bikeengine">Bike Engine: </label>
+                <select id="bikeengine">
+                    <option>INLINE_ENGINES</option>
+                    <option>SINGLE_CYLINDER</option>
+                    <option>PARALLEL_TWIN</option>
+                    <option>V_ENGINES</option>
+                    <option>FLAT_ENGINES</option>
+                </select>
+
+                <label for="bikehighspeed">Bike High Speed(mph): </label>
+                <input type="range" min="60" max="190" step="5">
+
+                <hr>
+                <button>Buy Bike💵</button>
+            </form>
+        </div>
+    </body>
+</html>

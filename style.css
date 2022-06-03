@@ -1,0 +1,44 @@
+body {
+    font-family: papyrus;
+    color: rgb(255, 255, 255);
+    background-color: rgb(28, 1, 36);
+}
+
+h1 {
+    text-align: center;
+}
+
+.form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 450px;
+    font-size: large;
+}
+
+input[type=text], select{
+    border-radius: 20px;
+    outline: none;
+    width: 600px;
+    height: 40px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input[type=range]{
+    width: 400px;
+}
+
+button{
+    outline: none;
+    color: wheat;
+    width:300px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: rgba(43, 255, 0, 0.795);
+}
+
+button:hover{
+    background-color: rgba(77, 184, 55, 0.795)
+}
