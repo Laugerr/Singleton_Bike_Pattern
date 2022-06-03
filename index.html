@@ -3,17 +3,18 @@
     <head>
         <title>🏍Bike Factory🏍</title>
         <link rel="stylesheet" href="./style.css">
+        <meta charset="UTF-8">
     </head>
     <body>
         <h1>Bike Factory - Form</h1>
 
         <div class="form">
-            <form>
+            <form action="Bike_Pattern.php" method="POST">
                 <label for="name">Buyer Name: </label>
-                <input type="text" id="name">
+                <input type="text" id="name" name="COSTUMER_NAME" required>
 
                 <label for="biketype">Bike Type: </label>
-                <select id="biketype">
+                <select id="biketype" name="BIKE_TYPE">
                     <option>CHOPPER_BIKE</option>
                     <option>CROSS_BIKE</option>
                     <option>CRUISER_BIKE</option>
@@ -26,14 +27,14 @@
                 </select>
 
                 <label for="bikeseats">Bike Seats:</label>
-                <select id="bikeseats">
+                <select id="bikeseats" name="BIKE_SEATS">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                 </select>
 
                 <label for="bikecolor">Bike Color: </label>
-                <select id="bikecolor">
+                <select id="bikecolor" name="BIKE_COLOR">
                     <option>WHITE</option>
                     <option style="background-color: black;color: aliceblue;">BLACK</option>
                     <option style="background-color: purple;">PURPLE</option>
@@ -45,14 +46,14 @@
                 </select>
 
                 <label for="biketransmission">Bike Transmission: </label>
-                <select id="biketransmission">
+                <select id="biketransmission" name="BIKE_TRANSMISSION">
                     <option>MANUAL</option>
                     <option>SEMI_AUTOMATIC</option>
                     <option>AUTOMATIC</option>
                 </select>
 
                 <label for="bikeengine">Bike Engine: </label>
-                <select id="bikeengine">
+                <select id="bikeengine" name="BIKE_ENGINE">
                     <option>INLINE_ENGINES</option>
                     <option>SINGLE_CYLINDER</option>
                     <option>PARALLEL_TWIN</option>
@@ -61,10 +62,10 @@
                 </select>
 
                 <label for="bikehighspeed">Bike High Speed(mph): </label>
-                <input type="range" min="60" max="190" step="5">
+                <input type="range" min="60" max="190" step="5" name="RANGE">
 
                 <hr>
-                <button>Buy Bike💵</button>
+                <button type="submit">Buy Bike💵</button>
             </form>
         </div>
     </body>
