@@ -163,12 +163,36 @@ $engine = $_POST["BIKE_ENGINE"];
 $speed = $_POST["BIKE_SPEED"]; 
 
 echo "The Costumer " . $_POST["COSTUMER_NAME"] . " Has Successfully bought the bike(Stats):\n"
-    . $_POST["BIKE_TYPE"]. "\n" . $_POST["BIKE_COLOR"]. "\n" . $_POST["BIKE_SEATS"]. "\n" . $_POST["BIKE_TRANSMISSION"]. "\n" . $_POST["BIKE_ENGINE"]. "\n" . $_POST["BIKE_SPEED"] ;
+    .'BIKE_TYPE: '. $_POST["BIKE_TYPE"]
+    . "\nBIKE_COLOR: " . $_POST["BIKE_COLOR"]
+    . "\nBIKE_SEATS: " . $_POST["BIKE_SEATS"]
+    . "\nBIKE_TRANSMISSION: " . $_POST["BIKE_TRANSMISSION"]
+    . "\nBIKE_ENGINE: " . $_POST["BIKE_ENGINE"]
+    . "\nBIKE_SPEED: " . $_POST["BIKE_SPEED"] . "mph" ;
 
 
 // ============Linking DB=================
 
 $host = "localhost";
-$dbname = "message_db";
+$dbname = "SINGLETON";
 $username = "root";
 $password = "";
+
+// Create connection
+$conn = new mysqli($host, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("\n\nConnection failed: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO BIKE_PATTERN (COSTUMER_NAME, BIKE_TYPE, BIKE_COLOR, BIKE_SEATS, BIKE_ENGINE, BIKE_TRANSMISSION, BIKE_SPEED)
+VALUES ('$name', '$type', '$color', '$seats', '$engine', '$transmission', '$speed')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "\n\nNew Bike sell has been created successfully";
+} else {
+  echo "\n\nError: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
