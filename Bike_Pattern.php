@@ -88,18 +88,17 @@ class OrderBikeCostumer implements BikeCraftingProcess
 
     public function CostumerBikeOrder(): void
     {
-        echo "The Costumer $this->name Ordered " .
-            "Bike type $this->type, with a(n) $this->color Color\n";
+        echo "<p>The Costumer <i style=\"color: #A9048A\">$this->name</i> Ordered " ."Bike type <i style=\"color: #A9048A\">$this->type</i>, with a(n) <i style=\"color: #A9048A\">$this->color</i> Color\n</p>";
     }
 
     public function factoryCraft(): void
     {
-        echo "The Bike Factory built the Bike $this->type in a(n) $this->color Color.\n";
+        echo "<p>The Bike Factory built the Bike <i style=\"color: #A9048A\">$this->type</i> in a(n) <i style=\"color: #A9048A\">$this->color</i> Color.\n</p>";
     }
 
     public function factoryBuild($components): void
     {
-        echo "The Bike Factory notes the order of the costumer $this->name.\n";
+        echo "<p>The Bike Factory notes the order of the costumer <i style=\"color: #A9048A\">$this->name</i>.\n</p>";
     }
 }
 
@@ -121,17 +120,17 @@ class BuildBikeCostumer implements BikeCraftingProcess
 
     public function CostumerBikeOrder(): void
     {
-        echo "The Costumer $this->name Ordered Bike engine $this->engine, with Speed of $this->speed of (mph).\n";
+        echo "<p>The Costumer <i style=\"color: #A9048A\">$this->name</i> Ordered Bike engine <i style=\"color: #A9048A\">$this->engine</i>, with Speed of <i style=\"color: #A9048A\">$this->speed</i> of (mph).\n</p>";
     }
 
     public function factoryCraft(): void
     {
-        echo "The Bike Factory built the Bike $this->type with engine $this->engine and Speed of $this->speed (mph).\n";
+        echo "<p>The Bike Factory built the Bike <i style=\"color: #A9048A\">$this->type</i> with engine <i style=\"color: #A9048A\">$this->engine</i> and Speed of <i style=\"color: #A9048A\">$this->speed</i> (mph).\n</p>";
     }
 
     public function factoryBuild($components): void
     {
-        echo "The Bike Factory notes the order of the costumer $this->name.\n";
+        echo "<p>The Bike Factory notes the order of the costumer <i style=\"color: #A9048A\">$this->name</i>.\n</p>";
     }
 }
 
@@ -145,12 +144,17 @@ function costumerOrder(BikeFactory $create)
 }
 
 
+echo "<body style=\"
+color: rgb(255, 255, 255);
+background-color: rgb(28, 1, 36);
+margin: auto;
+padding-left: 25%\">";
 
-echo "Building Bike Components:\n";
+echo "<h2 style=\"color: #ff969e\">Building Bike Components:</h2>\n";
 costumerOrder(new BikeOrder($_POST["COSTUMER_NAME"], $_POST["BIKE_TRANSMISSION"], $_POST["BIKE_ENGINE"], $_POST["BIKE_SPEED"]));
 echo "\n\n";
 
-echo "Delivring Bike Components:\n";
+echo "<h2 style=\"color: #ff969e\">Delivring Bike Components:</h2>\n";
 costumerOrder(new DeliveredBike($_POST["COSTUMER_NAME"], $_POST["BIKE_ENGINE"], $_POST["BIKE_SPEED"]));
 echo "\n\n";
 
@@ -162,13 +166,13 @@ $transmission = $_POST["BIKE_TRANSMISSION"];
 $engine = $_POST["BIKE_ENGINE"];
 $speed = $_POST["BIKE_SPEED"]; 
 
-echo "The Costumer " . $_POST["COSTUMER_NAME"] . " Has Successfully bought the bike(Stats):\n"
-    .'BIKE_TYPE: '. $_POST["BIKE_TYPE"]
-    . "\nBIKE_COLOR: " . $_POST["BIKE_COLOR"]
-    . "\nBIKE_SEATS: " . $_POST["BIKE_SEATS"]
-    . "\nBIKE_TRANSMISSION: " . $_POST["BIKE_TRANSMISSION"]
-    . "\nBIKE_ENGINE: " . $_POST["BIKE_ENGINE"]
-    . "\nBIKE_SPEED: " . $_POST["BIKE_SPEED"] . "mph" ;
+echo "<h3 style=\"color: #ff969e\">The Costumer " . $_POST["COSTUMER_NAME"] . " Has Successfully bought the bike(Stats):</h3>\n"
+    . "<p>BIKE_TYPE: <b style=\"color: #20dacc\">". $_POST["BIKE_TYPE"] . "</b><br>"
+    . "\nBIKE_COLOR: <b style=\"color: #20dacc\">" . $_POST["BIKE_COLOR"] . "</b><br>"
+    . "\nBIKE_SEATS: <b style=\"color: #20dacc\">" . $_POST["BIKE_SEATS"] . "</b><br>"
+    . "\nBIKE_TRANSMISSION: <b style=\"color: #20dacc\">" . $_POST["BIKE_TRANSMISSION"] . "</b><br>"
+    . "\nBIKE_ENGINE: <b style=\"color: #20dacc\">" . $_POST["BIKE_ENGINE"] . "</b><br>"
+    . "\nBIKE_SPEED: <b style=\"color: #20dacc\">" . $_POST["BIKE_SPEED"] . "</b>mph</p>" ;
 
 
 // ============Linking DB=================
@@ -182,17 +186,18 @@ $password = "";
 $conn = new mysqli($host, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-  die("\n\nConnection failed: " . $conn->connect_error);
+  die("\n\n<p style=\"color: #ff0008\">Connection failed: " . $conn->connect_error . " 🚨 Failure! Record has not been Saved.</p>");
 }
 
 $sql = "INSERT INTO BIKE_PATTERN (COSTUMER_NAME, BIKE_TYPE, BIKE_COLOR, BIKE_SEATS, BIKE_ENGINE, BIKE_TRANSMISSION, BIKE_SPEED)
 VALUES ('$name', '$type', '$color', '$seats', '$engine', '$transmission', '$speed')";
 
 if ($conn->query($sql) === TRUE) {
-  echo "\n\nNew Bike sell has been created successfully";
+  echo "\n\n<p style=\"color: #49e153\">New Bike sell has been created successfully✔</p>";
 } else {
-  echo "\n\nError: " . $sql . "<br>" . $conn->error;
+  echo "\n\n<p style=\"color: #ff0008\">Error: " . $sql . "<br>" . $conn->error . " 🚨 Failure! Record has not been Saved.</p>";
 }
+echo"</body>";
 
 $conn->close();
 ?>
